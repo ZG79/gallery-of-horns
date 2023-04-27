@@ -3,7 +3,8 @@ import Header from './Header'
 import Footer from './Footer';
 import Main from './Main';
 import SelectedBeast from './SelectedBeast';
-
+import beastData from "./data.json"
+import Forms from "./Forms"
 
 class App extends React.Component{
   constructor (props){
@@ -12,6 +13,7 @@ class App extends React.Component{
       emoji: '',
       selected: {},
       showModal:false,
+      beastData: beastData
     }
   }
 
@@ -37,11 +39,13 @@ class App extends React.Component{
     return(
       <>
       <Header emoji={this.state.emoji}/>
+
+      <Forms />
       <Main 
       addHeart = {this.addHeart}
       showSelectedBeast={this.showSelectedBeast}
       changes = {this.changes}
-      
+      beastData={this.state.beastData}
       />
       <SelectedBeast
         showModal = {this.state.showModal}
