@@ -5,7 +5,7 @@ class Header extends React.Component{
   render(){
     return(
       <>
-      <h1 id="tag">Horned Beats Encyclopedia {this.props.emoji} </h1>
+      <h1 id="tag">Horned Beasts Encyclopedia {this.props.emoji} </h1>
       </>
     )
   }
