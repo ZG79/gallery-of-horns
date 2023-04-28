@@ -36,28 +36,25 @@ class App extends React.Component{
     this.setState({showModal:false})
   }
 
-  changeTeam = (e) => {
+  changeHorns = (e) => {
     e.preventDefault();
-    let filteredBeasts;
-    const val = e.target.value;
-
-    console.log(typeof val)
-    // console.log(e.target.value, typeof(e.target.value));
-
-    if (e.target.value === '1'){
-      filteredBeasts = beastData.filter(beastie =>beastie.horns === 1)
-    }else if (e.target.value === '2'){
-      filteredBeasts = beastData.filter(beastie =>beastie.horns === 2)
-    }else if (e.target.value === '3'){
-    filteredBeasts = beastData.filter(beastie =>beastie.horns === 3)
-    } else if (e.target.value === '100'){
-      filteredBeasts = beastData.filter(beastie =>beastie.horns === 100)
-    } else {
-      filteredBeasts = beastData;
-    }
-  console.log(filteredBeasts)
-  this.setState({beastData:filteredBeasts})
-
+    let filteredBeasts = e.target.value!=='0' ? beastData.filter(beastie=>beastie.horns===parseInt(e.target.value)): beastData;
+    this.setState({beastData:filteredBeasts});
+    
+    // let filteredBeasts;
+    // if (e.target.value === '1'){
+    //   filteredBeasts = beastData.filter(beastie =>beastie.horns === 1)
+    // }else if (e.target.value === '2'){
+    //   filteredBeasts = beastData.filter(beastie =>beastie.horns === 2)
+    // }else if (e.target.value === '3'){
+    // filteredBeasts = beastData.filter(beastie =>beastie.horns === 3)
+    // } else if (e.target.value === '100'){
+    //   filteredBeasts = beastData.filter(beastie =>beastie.horns === 100)
+    // } else {
+    //   filteredBeasts = beastData;
+    // }
+    // this.setState({beastData:filteredBeasts});
+  // console.log(filteredBeasts)
 }
 
   render(){
@@ -65,7 +62,7 @@ class App extends React.Component{
       <div className='container'>
       <Header emoji={this.state.emoji}/>
 
-      <Forms changeTeam = {this.changeTeam}/>
+      <Forms changeHorns = {this.changeHorns}/>
 
       <Main 
       addHeart = {this.addHeart}
